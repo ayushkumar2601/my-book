@@ -1,0 +1,17 @@
+export const PERSONAL_INFO = {
+  name: "Ayush Kumar",
+  title1: "Backend Engineer",
+  title2: "System Design Enthusiast",
+  bio: "I specialize in Backend Development and System Design. I build scalable, efficient systems and enjoy working on performance-focused architectures. I'm constantly learning and improving through hackathons, real-world projects, and deep technical exploration.",
+  github: "https://github.com/ayushkumar2601",
+  twitter: "https://x.com/notmuchayush",
+  linkedin: "https://www.linkedin.com/in/ayush-kumar-9003b5321/",
+  email: "ayushkumar2601@gmail.com",
+  cal: "https://cal.com/ayushkumar2601",
+  resumeFile: "Ayush_Kumar_Resume.pdf",
+  image: "/assets/me.jpg",
+  banner: "/assets/banner.png",
+  logo: "/assets/logo.svg",
+  url: "https://ayushkumar.dev",
+  previewImage: "https://ayushkumar.dev/assets/preview.png",
+};
