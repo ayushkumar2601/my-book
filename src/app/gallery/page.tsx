@@ -1,14 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ProjectCard } from "@/src/components/ui/project-card";
-import { ProjectModal } from "@/src/components/ui/project-modal";
-import { projects } from "@/src/lib/constants";
 import Title from "@/src/components/ui/title";
 import { SeparatorLine } from "@/src/components/ui/separator-line";
 import { Separator } from "@/src/components/ui/separator";
 
-const ProjectsPageSkeleton = () => (
+const GalleryPageSkeleton = () => (
   <div className="min-h-screen min-w-full bg-background flex items-center justify-center">
     <div className="space-y-4 w-full max-w-2xl">
       <div className="flex gap-4">
@@ -24,10 +21,9 @@ const ProjectsPageSkeleton = () => (
   </div>
 );
 
-const ProjectsPage = () => {
+const GalleryPage = () => {
   const [mounted, setMounted] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -36,9 +32,7 @@ const ProjectsPage = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  if (!mounted || loading) return <ProjectsPageSkeleton />;
-
-  const displayedProjects = projects;
+  if (!mounted || loading) return <GalleryPageSkeleton />;
 
   return (
     <div className="min-h-screen min-w-full bg-background relative overflow-hidden font-display antialiased selection:bg-pink-600 selection:text-foreground">
@@ -47,45 +41,30 @@ const ProjectsPage = () => {
           <Separator orientation="vertical" className="absolute left-0 top-0 bottom-0 -translate-x-1/2 z-50" />
           <Separator orientation="vertical" className="absolute right-0 top-0 bottom-0 translate-x-1/2 z-50" />
           <SeparatorLine />
+          
           {/* Section Header */}
-          <Title title="My Projects" subtitle="A showcase of my work in full-stack & blockchain applications."/>
+          <Title title="Gallery" subtitle="Coming soon - A collection of my work and creative projects."/>
           
           <SeparatorLine />
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 my-8">
-            {displayedProjects.map((project, index) => (
-              <div
-                key={project.title}
-                className="group h-full"
-                style={{
-                  animationDelay: `${index * 120}ms`,
-                  animationFillMode: "both",
-                }}
-              >
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  tech={project.tech}
-                  imageSrc={project.imageSrc}
-                  link={project.link}
-                  source={project.code}
-                  onClick={() => setSelectedProject(project)}
-                />
-              </div>
-            ))}
-          </div><Separator/>
-        </div>
-      
-      </div>
+          {/* Placeholder Content */}
+          <div className="my-8 text-center">
+            <div className="bg-card border border-edge rounded-xl p-12 sm:p-16">
+              <div className="text-6xl mb-4">🎨</div>
+              <h3 className="text-xl sm:text-2xl font-medium text-foreground mb-3">
+                Gallery Coming Soon
+              </h3>
+              <p className="text-muted-foreground max-w-md mx-auto">
+                This page is under construction. Check back soon for an amazing collection of visual content!
+              </p>
+            </div>
+          </div>
 
-      <ProjectModal 
-        isOpen={!!selectedProject}
-        onClose={() => setSelectedProject(null)}
-        project={selectedProject}
-      />
+          <Separator/>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ProjectsPage;
+export default GalleryPage;

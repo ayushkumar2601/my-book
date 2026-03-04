@@ -317,6 +317,16 @@ export const projects = [
     code: "https://github.com/ayushkumar2601/Rico-Cli",
     imageSrc: "/projects/rico.png",
   },
+   {
+    title: "Bondbuy",
+    description: "Platform enabling collaborative ownership of high-value assets, allowing users to collectively invest and manage shared assets transparently.",
+    tech: ["Next.js", "TypeScript", "Blockchain Concepts", "PostgreSQL", "React"],
+    status: "Live",
+    year: "2026",
+    link: "https://bondbet.vercel.app/",
+    code: "https://github.com/ayushkumar2601/bondbet",
+    imageSrc: "/projects/bondbuy.png",
+  },
   {
     title: "Satix",
     description: "Modern platform designed to simplify digital workflows and productivity with a clean UI and scalable full-stack architecture.",
@@ -346,16 +356,6 @@ export const projects = [
     link: "https://docaihealth.vercel.app/",
     code: "https://github.com/ayushkumar2601/DocAI",
     imageSrc: "/projects/docai.png",
-  },
-  {
-    title: "Bondbuy",
-    description: "Platform enabling collaborative ownership of high-value assets, allowing users to collectively invest and manage shared assets transparently.",
-    tech: ["Next.js", "TypeScript", "Blockchain Concepts", "PostgreSQL", "React"],
-    status: "Live",
-    year: "2026",
-    link: "https://bondbet.vercel.app/",
-    code: "https://github.com/ayushkumar2601/bondbet",
-    imageSrc: "/projects/bondbuy.png",
   },
   {
     title: "Unirivo",

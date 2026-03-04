@@ -12,6 +12,7 @@ import Link from "next/link";
 import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { ArrowRight, Calendar, Mail } from "lucide-react";
 import { PERSONAL_INFO } from "@/src/lib/personal-info";
+import { Toaster, toast } from "sonner";
 
 const Home = () => {
   const [mounted, setMounted] = useState(false);
@@ -24,10 +25,52 @@ const Home = () => {
   });
 
   useEffect(() => setMounted(true), []);
+
+  const handleBookCallClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Send notification email
+      const response = await fetch('/api/notify-call', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success('Request sent! Opening calendar...', {
+          description: 'You will be redirected to book a call.',
+        });
+        
+        // Redirect after a short delay
+        setTimeout(() => {
+          window.open(PERSONAL_INFO.cal, '_blank');
+        }, 1000);
+      } else {
+        toast.error('Failed to send notification', {
+          description: 'But you can still book a call!',
+        });
+        window.open(PERSONAL_INFO.cal, '_blank');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Something went wrong', {
+        description: 'But you can still book a call!',
+      });
+      window.open(PERSONAL_INFO.cal, '_blank');
+    }
+  };
+
   if (!mounted) return <PageSkeleton />;
 
   return (
     <div className="min-h-screen min-w-full bg-background relative font-display antialiased selection:bg-pink-600 overflow-x-hidden selection:text-foreground">
+      <Toaster position="bottom-right" richColors />
       {/* Interactive Cat Component */}
       {/* <OnekoCat /> */}
       <div className="relative z-10 max-w-lg sm:max-w-3xl mx-auto">
@@ -85,7 +128,7 @@ const Home = () => {
 
                 <span className="text-muted-foreground text-lg" style={{ fontFamily: '"Instrument Serif", serif' }}>or</span>
 
-                <Link href={PERSONAL_INFO.cal} target="_blank" rel="noopener noreferrer" className="group/btn">
+                <button onClick={handleBookCallClick} className="group/btn">
                   <HoverBorderGradient
                     containerClassName="rounded-full"
                     className="flex items-center gap-2 bg-background dark:bg-black text-foreground"
@@ -94,7 +137,7 @@ const Home = () => {
                     <span>Book a Call</span>
                     <ArrowRight className="w-3 h-3 opacity-0 -ml-1 group-hover/btn:opacity-100 group-hover/btn:ml-0 transition-all duration-200" />
                   </HoverBorderGradient>
-                </Link>
+                </button>
               </div>
             </div>
           {/* Footer Section */}
