@@ -115,7 +115,12 @@ const Home = () => {
               </h2>
 
               <div className="flex flex-wrap flex-col lg:flex-row items-center gap-3 sm:gap-4">
-                <Link href={`mailto:${PERSONAL_INFO.email}`} className="group/btn">
+                <a 
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${PERSONAL_INFO.email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn cursor-pointer"
+                >
                   <HoverBorderGradient
                     containerClassName="rounded-full"
                     className="flex items-center gap-2 bg-background dark:bg-black text-foreground"
@@ -124,7 +129,7 @@ const Home = () => {
                     <span>Email Me</span>
                     <ArrowRight className="w-3 h-3 opacity-0 -ml-1 group-hover/btn:opacity-100 group-hover/btn:ml-0 transition-all duration-200" />
                   </HoverBorderGradient>
-                </Link>
+                </a>
 
                 <span className="text-muted-foreground text-lg" style={{ fontFamily: '"Instrument Serif", serif' }}>or</span>
 
