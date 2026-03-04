@@ -1,4 +1,4 @@
-import { I_Experience } from "@/src/types/type";
+import { I_Experience, I_Achievement } from "@/src/types/type";
 import { IconType } from "react-icons";
 import {
   SiNextdotjs,
@@ -116,6 +116,25 @@ export const experienceData: I_Experience[] = [
     duration: "2023 - Present",
     job_title: "FullStack Developer",
     description: "",
+  },
+];
+
+export const achievementsData: I_Achievement[] = [
+  {
+    title: "Eth Track Winner",
+    organization_name: "Payload 26 Hackathon",
+    organization_link: "#",
+    organization_logo: "/assets/trophy.svg",
+    year: "2026",
+    description: "Built Bondbuy — a platform enabling shared ownership of high-value assets using blockchain-inspired coordination systems.",
+  },
+  {
+    title: "Snowflake AI Track Winner",
+    organization_name: "Diversion 26 Hackathon",
+    organization_link: "#",
+    organization_logo: "/assets/trophy.svg",
+    year: "2026",
+    description: "Built RICO — an AI-powered API security scanner that detects vulnerabilities like IDOR, SQL injection, authentication flaws, and CSRF.",
   },
 ];
 

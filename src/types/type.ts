@@ -30,6 +30,15 @@ export interface I_Experience {
     description: string
 }
 
+export interface I_Achievement {
+    organization_link: string,
+    organization_logo: string,
+    organization_name: string,
+    year: string,
+    title: string,
+    description: string
+}
+
 export interface DarkModeContextType {
     isDarkMode: boolean;
     toggleDarkMode: () => void;

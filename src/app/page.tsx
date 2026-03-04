@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Hero, ExperienceSection, ProjectsSection, BentoGrid } from "@/src/components/sections";
+import { Hero, AchievementsSection, ProjectsSection, BentoGrid } from "@/src/components/sections";
 import { Footer } from "@/src/components/layout";
 import { SeparatorLine } from "@/src/components/ui/separator-line";
 import { PageSkeleton } from "@/src/components/ui/loading-skeleton";
@@ -57,10 +57,10 @@ const Home = () => {
             <ProjectsSection />
           </div>
 
-          {/* Experience Section */}
+          {/* Achievements Section */}
           <div className="px-6 sm:px-8 mb-12 ">
             <SeparatorLine />
-            <ExperienceSection />
+            <AchievementsSection />
           </div>
 
  <SeparatorLine />

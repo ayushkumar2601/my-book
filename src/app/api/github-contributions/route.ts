@@ -2,7 +2,16 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const githubToken = process.env.GITHUB_TOKEN; 
-  const username = "ayushkumar2601"; 
+  const username = "ayushkumar2601";
+
+  // Return empty data if no token is configured
+  if (!githubToken) {
+    console.warn("GITHUB_TOKEN not configured");
+    return NextResponse.json({ 
+      totalContributions: 0, 
+      weeks: [] 
+    });
+  }
 
   const query = `
     query($username: String!) {
@@ -24,6 +33,9 @@ export async function GET() {
   `;
 
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
     const res = await fetch("https://api.github.com/graphql", {
       method: "POST",
       headers: {
@@ -31,26 +43,36 @@ export async function GET() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ query, variables: { username } }),
+      signal: controller.signal,
     });
 
+    clearTimeout(timeoutId);
+
     const data = await res.json();
-    
-    console.log("GitHub API Response:", JSON.stringify(data, null, 2));
 
     if (data.errors) {
       console.error("GitHub API Errors:", data.errors);
-      return NextResponse.json({ error: data.errors[0].message }, { status: 400 });
+      return NextResponse.json({ 
+        totalContributions: 0, 
+        weeks: [] 
+      });
     }
 
     if (!data.data || !data.data.user) {
       console.error("Invalid response structure:", data);
-      return NextResponse.json({ error: "Invalid GitHub API response" }, { status: 500 });
+      return NextResponse.json({ 
+        totalContributions: 0, 
+        weeks: [] 
+      });
     }
 
     return NextResponse.json(data.data.user.contributionsCollection.contributionCalendar);
-  } catch (err) {
-  console.error("Failed to fetch contributions:", err);
-  return NextResponse.json({ error: "Failed to fetch contributions" }, { status: 500 });
-}
-
+  } catch (err: any) {
+    console.error("Failed to fetch contributions:", err.message);
+    // Return empty data instead of error to prevent UI breaking
+    return NextResponse.json({ 
+      totalContributions: 0, 
+      weeks: [] 
+    });
+  }
 }
