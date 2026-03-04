@@ -1,17 +1,16 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export const FolderIcon = () => {
     return (
-        <a
-            href="https://ui.ayushkumar.dev"
-            target="_blank"
-            rel="noopener noreferrer"
+        <Link
+            href="/gallery"
             className="flex items-center gap-4 group cursor-pointer relative"
         >
             {/* URL on hover - top left */}
             <div className="absolute -top-8 -left-8 md:-top-12 md:-left-12 opacity-100 transition-opacity duration-300">
-                <span className="text-xs ml-10 md:ml-0 md:text-md text-foreground truncate">UI Library</span>
+                <span className="text-xs ml-10 md:ml-0 md:text-md text-foreground truncate">Gallery</span>
             </div>
 
             {/* Arrow on hover - top right */}
@@ -66,6 +65,6 @@ export const FolderIcon = () => {
             </div>
 
 
-        </a>
+        </Link>
     );
 };
