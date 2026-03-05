@@ -122,6 +122,7 @@ const Home = () => {
                   className="group/btn cursor-pointer"
                 >
                   <HoverBorderGradient
+                    as="div"
                     containerClassName="rounded-full"
                     className="flex items-center gap-2 bg-background dark:bg-black text-foreground"
                   >
@@ -133,16 +134,16 @@ const Home = () => {
 
                 <span className="text-muted-foreground text-lg" style={{ fontFamily: '"Instrument Serif", serif' }}>or</span>
 
-                <button onClick={handleBookCallClick} className="group/btn">
-                  <HoverBorderGradient
-                    containerClassName="rounded-full"
-                    className="flex items-center gap-2 bg-background dark:bg-black text-foreground"
-                  >
-                    <Calendar className="w-4 h-4" />
-                    <span>Book a Call</span>
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-1 group-hover/btn:opacity-100 group-hover/btn:ml-0 transition-all duration-200" />
-                  </HoverBorderGradient>
-                </button>
+                <HoverBorderGradient
+                  as="button"
+                  onClick={handleBookCallClick}
+                  containerClassName="rounded-full group/btn"
+                  className="flex items-center gap-2 bg-background dark:bg-black text-foreground"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>Book a Call</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 -ml-1 group-hover/btn:opacity-100 group-hover/btn:ml-0 transition-all duration-200" />
+                </HoverBorderGradient>
               </div>
             </div>
           {/* Footer Section */}

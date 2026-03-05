@@ -23,32 +23,52 @@ export const metadata: Metadata = {
     "Ayush Kumar",
     "Backend Engineer",
     "System Design",
+    "System Design Enthusiast",
     "LinkedIn ayushkumar2601",
     "Full-Stack Developer",
-    "Next.js",
-    "TypeScript",
+    "Next.js Developer",
+    "TypeScript Developer",
     "Portfolio",
     "Web Development",
     "Backend Developer",
     "System Architecture",
+    "Scalable Systems",
+    "API Development",
+    "Database Design",
+    "Microservices",
+    "Cloud Architecture",
+    "Performance Optimization",
+    "Hackathon Winner",
+    "Payload 26",
+    "Diversion 26",
+    "Software Engineer",
+    "Tech Portfolio",
   ],
   authors: [{ name: info.name, url: info.url }],
   creator: info.name,
   publisher: info.name,
+  
+  // Category for better classification
+  category: 'technology',
+  
+  // Application name
+  applicationName: `${info.name} Portfolio`,
 
   // Open Graph (for WhatsApp, LinkedIn, Discord, Facebook)
   openGraph: {
     type: "website",
+    locale: "en_US",
     url: info.url,
     title: `${info.name} | ${PERSONAL_INFO.title1}`,
     description: info.description,
-    siteName: info.name,
+    siteName: `${info.name} Portfolio`,
     images: [
       {
         url: info.image,
         width: 1200,
         height: 630,
-        alt: `${info.name} Portfolio Preview`,
+        alt: `${info.name} - Backend Engineer & System Design Enthusiast Portfolio`,
+        type: "image/png",
       },
     ],
   },
@@ -71,12 +91,29 @@ export const metadata: Metadata = {
   },
 
   // SEO
-  alternates: { canonical: info.url },
+  alternates: { 
+    canonical: info.url,
+  },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, noimageindex: false },
+    nocache: false,
+    googleBot: { 
+      index: true, 
+      follow: true, 
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  
+  // Verification (add these when you get them)
+  // verification: {
+  //   google: 'your-google-verification-code',
+  //   yandex: 'your-yandex-verification-code',
+  //   bing: 'your-bing-verification-code',
+  // },
 };
 
 export const viewport: Viewport = {
@@ -86,9 +123,40 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: PERSONAL_INFO.name,
+    url: PERSONAL_INFO.url,
+    image: PERSONAL_INFO.previewImage,
+    jobTitle: PERSONAL_INFO.title1,
+    description: PERSONAL_INFO.bio,
+    sameAs: [
+      PERSONAL_INFO.github,
+      PERSONAL_INFO.linkedin,
+      PERSONAL_INFO.twitter,
+    ],
+    knowsAbout: [
+      'Backend Development',
+      'System Design',
+      'Full-Stack Development',
+      'Next.js',
+      'TypeScript',
+      'Node.js',
+      'Database Design',
+      'API Development',
+      'Microservices',
+      'Cloud Architecture',
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -8,6 +8,9 @@ import Title from "@/src/components/ui/title";
 import { SeparatorLine } from "@/src/components/ui/separator-line";
 import { Separator } from "@/src/components/ui/separator";
 
+// Note: Metadata export doesn't work in client components
+// Move this to a separate page.tsx if you need server-side metadata
+
 const ProjectsPageSkeleton = () => (
   <div className="min-h-screen min-w-full bg-background flex items-center justify-center">
     <div className="space-y-4 w-full max-w-2xl">
