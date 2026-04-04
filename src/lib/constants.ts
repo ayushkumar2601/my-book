@@ -136,6 +136,14 @@ export const achievementsData: I_Achievement[] = [
     year: "2026",
     description: "Built RICO — an AI-powered API security scanner that detects vulnerabilities like IDOR, SQL injection, authentication flaws, and CSRF.",
   },
+  {
+    title: "Safety Track Winner",
+    organization_name: "FrostHacks 26 Hackathon",
+    organization_link: "https://www.linkedin.com/posts/ayush-kumar-9003b5321_frosthackss02-hackathon-innovation-ugcPost-7444746827087925250-2wVE?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFFlFdABtgDPe4hnL-KUuGI07w-4lbONSxw",
+    organization_logo: "/assets/frosthacks.png",
+    year: "2026",
+    description: "Built S.A.F.E — a Smart Adaptive Fire Evacuation system that helps people escape the danger zones in a fire situation using visual elements.",
+  },
 ];
 
 // export const projects = [
