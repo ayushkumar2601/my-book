@@ -6,7 +6,7 @@ export const educationData: I_Education[] = [
     institute_link: "https://www.heritageit.edu/",
     institute_logo: "/assets/heritage.png",
     course_title: "Bachelor of Technology, Computer Science and Engineering",
-    ending_date: "Aug 2024 – Aug 2028",
+    ending_date: "2024 – 2028",
     grade: "Grade: 8.905*",
   },
   {
@@ -14,7 +14,7 @@ export const educationData: I_Education[] = [
     institute_link: "https://sxipanihati.org/sxip/",
     institute_logo: "/assets/st.xaviers.png",
     course_title: "ISC",
-    ending_date: "2022 – Jun 2024",
+    ending_date: "2022 – 2024",
     grade: "Grade: 89.75%",
   },
   {
@@ -22,7 +22,7 @@ export const educationData: I_Education[] = [
     institute_link: "https://sxipanihati.org/sxip/",
     institute_logo: "/assets/st.xaviers.png",
     course_title: "ICSE",
-    ending_date: "Apr 2020 – Jun 2022",
+    ending_date: "2020 – 2022",
     grade: "Grade: 92.3%",
   },
   {
