@@ -12,13 +12,13 @@ export interface I_Heading {
 }
 
 export interface I_Education {
-    institute_link?: string,
+    institute_link: string,
     institute_logo: string,
+    institute_name: string,
     course_title: string,
     ending_date: string,
-    institute_name: string,
-    cgpa: number,
-    description: string
+    grade?: string,
+    description?: string
 }
 
 export interface I_Experience {

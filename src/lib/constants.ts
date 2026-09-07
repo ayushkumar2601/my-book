@@ -1,4 +1,38 @@
-import { I_Experience, I_Achievement } from "@/src/types/type";
+import { I_Experience, I_Achievement, I_Education } from "@/src/types/type";
+
+export const educationData: I_Education[] = [
+  {
+    institute_name: "Heritage Institute of Technology",
+    institute_link: "https://www.heritageit.edu/",
+    institute_logo: "/assets/heritage.png",
+    course_title: "Bachelor of Technology, Computer Science and Engineering",
+    ending_date: "Aug 2024 – Aug 2028",
+    grade: "Grade: 8.905*",
+  },
+  {
+    institute_name: "St. Xavier's Institution",
+    institute_link: "https://sxipanihati.org/sxip/",
+    institute_logo: "/assets/st.xaviers.png",
+    course_title: "ISC",
+    ending_date: "2022 – Jun 2024",
+    grade: "Grade: 89.75%",
+  },
+  {
+    institute_name: "St. Xavier's Institution",
+    institute_link: "https://sxipanihati.org/sxip/",
+    institute_logo: "/assets/st.xaviers.png",
+    course_title: "ICSE",
+    ending_date: "Apr 2020 – Jun 2022",
+    grade: "Grade: 92.3%",
+  },
+  {
+    institute_name: "St. Xavier's Institution",
+    institute_link: "https://sxipanihati.org/sxip/",
+    institute_logo: "/assets/st.xaviers.png",
+    course_title: "Middle School Diploma",
+    ending_date: "2008 – 2020",
+  },
+];
 import { IconType } from "react-icons";
 import {
   SiNextdotjs,
