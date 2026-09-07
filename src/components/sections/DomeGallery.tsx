@@ -96,12 +96,12 @@ function buildItems(pool: ImageItem[], seg: number): ItemDef[] {
 
   if (normalizedImages.length === 0) return [];
 
-  // Generate full 360-degree spherical grid coordinates (~77 items)
-  const evenYs = [-4, -2, 0, 2, 4];
-  const oddYs = [-3, -1, 1, 3];
+  // Generate dense wall-to-wall 360-degree spherical grid coordinates (~220 items)
+  const evenYs = [-6, -4, -2, 0, 2, 4, 6];
+  const oddYs = [-5, -3, -1, 1, 3, 5];
 
   const xCols: number[] = [];
-  for (let x = -32; x <= 32; x += 4) {
+  for (let x = -34; x <= 34; x += 2) {
     xCols.push(x);
   }
 
