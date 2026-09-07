@@ -186,7 +186,7 @@ export const achievementsData: I_Achievement[] = [
     organization_name: "Payload ’26 (Devfolio)",
     organization_link: "https://www.linkedin.com/posts/ayushkumar2601_hackathon-ethindia-payload26-activity-7432112624336564226-PZSD?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFFlFdABtgDPe4hnL-KUuGI07w-4lbONSxw",
     organization_logo: "/assets/payload.png",
-    year: "Feb 2026",
+    year: "Jan 2026",
     description: "Solo project win for building Bondbuy — a shared asset ownership platform using Web3 coordination primitives.",
   },
   {
@@ -202,7 +202,7 @@ export const achievementsData: I_Achievement[] = [
     organization_name: "Diversion 2K26 (IEM-ACM)",
     organization_link: "https://www.linkedin.com/posts/ayushkumar2601_diversion2k26-hackathonwinner-apisecurity-activity-7434179608599535617-oRyK?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFFlFdABtgDPe4hnL-KUuGI07w-4lbONSxw",
     organization_logo: "/assets/devfolio.png",
-    year: "Mar 2026",
+    year: "Feb 2026",
     description: "Built RICO — AI-powered API Security Scanner detecting IDOR, SQL injection, authentication flaws, and CSRF.",
   },
   {
