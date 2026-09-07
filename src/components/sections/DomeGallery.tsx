@@ -98,14 +98,14 @@ function buildItems(pool: ImageItem[], seg: number): ItemDef[] {
   if (count === 0) return [];
 
   // Generate spherical grid coordinates for exactly 'count' items with NO repetitions
-  const evenYs = [-4, -2, 0, 2, 4];
-  const oddYs = [-3, -1, 1, 3, 5];
+  const evenYs = [-3, -1, 1, 3];
+  const oddYs = [-2, 0, 2];
 
-  // Distribute columns evenly around the 360-degree dome sphere
-  const colsNeeded = Math.ceil(count / 5);
+  // Distribute columns evenly around the dome sphere
+  const colsNeeded = Math.ceil(count / 4);
   const xCols = Array.from({ length: colsNeeded }, (_, i) => {
-    const minX = -37;
-    const maxX = 37;
+    const minX = -28;
+    const maxX = 28;
     return colsNeeded === 1 ? 0 : minX + (i * (maxX - minX)) / (colsNeeded - 1);
   });
 
@@ -737,16 +737,16 @@ export default function DomeGallery({
       }
     }
     
-    // body.dg-scroll-lock {
-    //   position: fixed !important;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100% !important;
-    //   height: 100% !important;
-    //   overflow: hidden !important;
-    //   touch-action: none !important;
-    //   overscroll-behavior: contain !important;
-    // }
+    /* body.dg-scroll-lock {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+      touch-action: none !important;
+      overscroll-behavior: contain !important;
+    } */
     .item__image {
       position: absolute;
       inset: 10px;
