@@ -130,6 +130,14 @@ export const experienceData: I_Experience[] = [
     job_title: "Software Development Engineer Intern",
     description: "Developed and maintained full-stack web applications using Next.js, TypeScript, Node.js, PostgreSQL, REST APIs, and Firebase Auth. Built backend services, database integrations, authentication workflows, and AI features while collaborating across cross-functional teams.",
   },
+  {
+    company_link: "https://niamt.ac.in/",
+    company_logo: "/assets/niamt.png",
+    company_name: "NIAMT Ranchi (Formerly NIFFT)",
+    duration: "Jun 2026 – Jul 2026",
+    job_title: "Research Intern",
+    description: "Completed a Summer Internship at NIAMT Ranchi (formerly NIFFT), gaining hands-on exposure to Industrial Automation, Embedded Systems, and Digital Control Engineering. Developed a deeper understanding of automation-driven manufacturing systems, embedded technologies, and control methodologies while working in a multidisciplinary technical environment.",
+  },
 ];
 
 export const achievementsData: I_Achievement[] = [
