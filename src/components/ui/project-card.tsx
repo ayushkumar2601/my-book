@@ -28,12 +28,12 @@ export const ProjectCard = ({
   const imageObjectPosition = (title === "Practice JS" || title === "Paths") ? "object-left" : "";
 
   return (
-    <BorderFrame className="">
+    <BorderFrame className="h-full">
       <div
         onClick={onClick}
         className="
-        group relative flex flex-col border border-edge 
-         overflow-hidden bg-background cursor-pointer
+        group relative flex flex-col h-full border border-edge 
+        overflow-hidden bg-background cursor-pointer
         hover:border-border transition-colors
       "
       >
@@ -67,11 +67,11 @@ export const ProjectCard = ({
             </h3>
           </header>
 
-          <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed line-clamp-3">
             {description}
           </p>
 
-          <div className="flex items-center justify-between mt-auto">
+          <div className="flex items-center justify-between mt-auto pt-2">
             {/* Tech Stack */}
             <div className="flex flex-wrap gap-1.5">
               {tech.slice(0, 3).map((item) => (
@@ -109,6 +109,5 @@ export const ProjectCard = ({
         </div>
       </div>
     </BorderFrame>
-
   );
 };
