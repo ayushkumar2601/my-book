@@ -30,36 +30,36 @@ export const FolderIcon = () => {
 
                 {/* Documents popping out of the folder */}
                 <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-24 transition-all duration-300 ease-out translate-y-1 opacity-90 group-hover:-translate-y-5 group-hover:opacity-100 will-change-transform z-0">
-                    {/* Doc 3 (Left / Back) */}
-                    <div className="absolute bottom-0 left-0 w-16 h-20 bg-neutral-800 dark:bg-neutral-800 rounded-md shadow-md border border-white/20 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-x-6 group-hover:-translate-y-4 group-hover:-rotate-16 flex flex-col p-1 justify-between overflow-hidden">
+                    {/* Doc 3 (Left / Back - Pink #E60076) */}
+                    <div className="absolute bottom-0 left-0 w-16 h-20 bg-[#E60076] rounded-md shadow-md border border-white/30 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-x-6 group-hover:-translate-y-4 group-hover:-rotate-16 flex flex-col p-1 justify-between overflow-hidden">
                         <div className="w-full h-12 overflow-hidden rounded">
                             <img src="/gallery/21.jpeg" alt="Gallery preview 21" className="w-full h-full object-cover" />
                         </div>
                         <div className="space-y-0.5 px-0.5 pb-0.5">
-                            <div className="w-3/4 h-1 bg-white/40 rounded"></div>
-                            <div className="w-1/2 h-1 bg-white/20 rounded"></div>
+                            <div className="w-3/4 h-1 bg-white/60 rounded"></div>
+                            <div className="w-1/2 h-1 bg-white/40 rounded"></div>
                         </div>
                     </div>
 
-                    {/* Doc 2 (Center / Middle) */}
-                    <div className="absolute bottom-0 left-2 w-16 h-20 bg-neutral-800 dark:bg-neutral-800 rounded-md shadow-md border border-white/20 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-y-7 flex flex-col p-1 justify-between overflow-hidden">
+                    {/* Doc 2 (Center / Middle - Cyan #00E5FF) */}
+                    <div className="absolute bottom-0 left-2 w-16 h-20 bg-[#00E5FF] rounded-md shadow-md border border-white/30 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-y-7 flex flex-col p-1 justify-between overflow-hidden">
                         <div className="w-full h-12 overflow-hidden rounded">
                             <img src="/gallery/11.jpeg" alt="Gallery preview 11" className="w-full h-full object-cover" />
                         </div>
                         <div className="space-y-0.5 px-0.5 pb-0.5">
-                            <div className="w-4/5 h-1 bg-white/40 rounded"></div>
-                            <div className="w-3/5 h-1 bg-white/20 rounded"></div>
+                            <div className="w-4/5 h-1 bg-black/60 rounded"></div>
+                            <div className="w-3/5 h-1 bg-black/40 rounded"></div>
                         </div>
                     </div>
 
-                    {/* Doc 1 (Right / Front) */}
-                    <div className="absolute bottom-0 left-4 w-16 h-20 bg-neutral-800 dark:bg-neutral-800 rounded-md shadow-lg border border-white/20 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:translate-x-6 group-hover:-translate-y-4 group-hover:rotate-16 flex flex-col p-1 justify-between overflow-hidden">
+                    {/* Doc 1 (Right / Front - Lime Green #A3FF12) */}
+                    <div className="absolute bottom-0 left-4 w-16 h-20 bg-[#A3FF12] rounded-md shadow-lg border border-black/20 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:translate-x-6 group-hover:-translate-y-4 group-hover:rotate-16 flex flex-col p-1 justify-between overflow-hidden">
                         <div className="w-full h-12 overflow-hidden rounded">
                             <img src="/gallery/9.jpeg" alt="Gallery preview 9" className="w-full h-full object-cover" />
                         </div>
                         <div className="space-y-0.5 px-0.5 pb-0.5">
-                            <div className="w-2/3 h-1 bg-white/40 rounded"></div>
-                            <div className="w-1/2 h-1 bg-white/20 rounded"></div>
+                            <div className="w-2/3 h-1 bg-black/60 rounded"></div>
+                            <div className="w-1/2 h-1 bg-black/40 rounded"></div>
                         </div>
                     </div>
                 </div>
