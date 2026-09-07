@@ -33,7 +33,7 @@ type ItemDef = {
 };
 
 const DEFAULT_IMAGES: ImageItem[] = [
-  { src: "/gallery/1.JPG", alt: "Gallery image 1" },
+  { src: "/gallery/1.jpeg", alt: "Gallery image 1" },
   { src: "/gallery/2.jpeg", alt: "Gallery image 2" },
   { src: "/gallery/3.jpeg", alt: "Gallery image 3" },
   { src: "/gallery/4.jpeg", alt: "Gallery image 4" },
@@ -53,7 +53,17 @@ const DEFAULT_IMAGES: ImageItem[] = [
   { src: "/gallery/19.jpeg", alt: "Gallery image 19" },
   { src: "/gallery/20.jpeg", alt: "Gallery image 20" },
   { src: "/gallery/21.jpeg", alt: "Gallery image 21" },
-  { src: "/gallery/22.jpeg", alt: "Gallery image 22" }
+  { src: "/gallery/22.jpeg", alt: "Gallery image 22" },
+  { src: "/gallery/23.png", alt: "Gallery image 23" },
+  { src: "/gallery/24.png", alt: "Gallery image 24" },
+  { src: "/gallery/25.png", alt: "Gallery image 25" },
+  { src: "/gallery/26.png", alt: "Gallery image 26" },
+  { src: "/gallery/27.png", alt: "Gallery image 27" },
+  { src: "/gallery/28.png", alt: "Gallery image 28" },
+  { src: "/gallery/29.png", alt: "Gallery image 29" },
+  { src: "/gallery/30.png", alt: "Gallery image 30" },
+  { src: "/gallery/31.png", alt: "Gallery image 31" },
+  { src: "/gallery/32.png", alt: "Gallery image 32" }
 ];
 
 
@@ -77,25 +87,6 @@ const getDataNumber = (el: HTMLElement, name: string, fallback: number) => {
 };
 
 function buildItems(pool: ImageItem[], seg: number): ItemDef[] {
-  const xCols = Array.from({ length: seg }, (_, i) => -37 + i * 2);
-  const evenYs = [-4, -2, 0, 2, 4];
-  const oddYs = [-3, -1, 1, 3, 5];
-
-  const coords = xCols.flatMap((x, c) => {
-    const ys = c % 2 === 0 ? evenYs : oddYs;
-    return ys.map(y => ({ x, y, sizeX: 2, sizeY: 2 }));
-  });
-
-  const totalSlots = coords.length;
-  if (pool.length === 0) {
-    return coords.map(c => ({ ...c, src: '', alt: '' }));
-  }
-  if (pool.length > totalSlots) {
-    console.warn(
-      `[DomeGallery] Provided image count (${pool.length}) exceeds available tiles (${totalSlots}). Some images will not be shown.`
-    );
-  }
-
   const normalizedImages = pool.map(image => {
     if (typeof image === 'string') {
       return { src: image, alt: '' };
@@ -103,25 +94,36 @@ function buildItems(pool: ImageItem[], seg: number): ItemDef[] {
     return { src: image.src || '', alt: image.alt || '' };
   });
 
-  const usedImages = Array.from({ length: totalSlots }, (_, i) => normalizedImages[i % normalizedImages.length]);
+  const count = normalizedImages.length;
+  if (count === 0) return [];
 
-  for (let i = 1; i < usedImages.length; i++) {
-    if (usedImages[i].src === usedImages[i - 1].src) {
-      for (let j = i + 1; j < usedImages.length; j++) {
-        if (usedImages[j].src !== usedImages[i].src) {
-          const tmp = usedImages[i];
-          usedImages[i] = usedImages[j];
-          usedImages[j] = tmp;
-          break;
-        }
-      }
+  // Generate spherical grid coordinates for exactly 'count' items with NO repetitions
+  const evenYs = [-4, -2, 0, 2, 4];
+  const oddYs = [-3, -1, 1, 3, 5];
+
+  // Distribute columns evenly around the 360-degree dome sphere
+  const colsNeeded = Math.ceil(count / 5);
+  const xCols = Array.from({ length: colsNeeded }, (_, i) => {
+    const minX = -37;
+    const maxX = 37;
+    return colsNeeded === 1 ? 0 : minX + (i * (maxX - minX)) / (colsNeeded - 1);
+  });
+
+  const coords: { x: number; y: number; sizeX: number; sizeY: number }[] = [];
+  let added = 0;
+  for (let c = 0; c < xCols.length && added < count; c++) {
+    const x = xCols[c];
+    const ys = c % 2 === 0 ? evenYs : oddYs;
+    for (let r = 0; r < ys.length && added < count; r++) {
+      coords.push({ x, y: ys[r], sizeX: 2, sizeY: 2 });
+      added++;
     }
   }
 
   return coords.map((c, i) => ({
     ...c,
-    src: usedImages[i].src,
-    alt: usedImages[i].alt
+    src: normalizedImages[i].src,
+    alt: normalizedImages[i].alt
   }));
 }
 

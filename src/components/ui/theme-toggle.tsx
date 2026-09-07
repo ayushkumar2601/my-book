@@ -1,56 +1,62 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
-import { flushSync } from "react-dom"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { flushSync } from "react-dom";
 
-import { Button } from "@/src/components/ui/button"
+import { Button } from "@/src/components/ui/button";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
 
   const toggleTheme = async (e: React.MouseEvent<HTMLButtonElement>) => {
     // Play click sound
-    const audio = new Audio('/click.wav')
-    audio.play().catch(error => console.log('Audio play failed:', error))
+    const audio = new Audio('/click.wav');
+    audio.play().catch(error => console.log('Audio play failed:', error));
     
-    const newTheme = theme === "light" ? "dark" : "light"
+    const newTheme = theme === "light" ? "dark" : "light";
 
-    if (!document.startViewTransition || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setTheme(newTheme)
-      return
+    if (
+      typeof document === "undefined" ||
+      !document.startViewTransition ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setTheme(newTheme);
+      return;
     }
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX && e.clientX > 0 ? e.clientX : rect.left + rect.width / 2;
+    const y = e.clientY && e.clientY > 0 ? e.clientY : rect.top + rect.height / 2;
+
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
 
     const transition = document.startViewTransition(() => {
       flushSync(() => {
-        setTheme(newTheme)
-      })
-    })
+        setTheme(newTheme);
+      });
+    });
 
-    const x = e.clientX
-    const y = e.clientY
-    const endRadius = Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )
+    await transition.ready;
 
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${endRadius}px at ${x}px ${y}px)`,
-          ],
-        },
-        {
-          duration: 500,
-          easing: "ease-in-out",
-          pseudoElement: "::view-transition-new(root)",
-        }
-      )
-    })
-  }
+    document.documentElement.animate(
+      {
+        clipPath: [
+          `circle(0px at ${x}px ${y}px)`,
+          `circle(${endRadius}px at ${x}px ${y}px)`,
+        ],
+      },
+      {
+        duration: 700,
+        easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+        pseudoElement: "::view-transition-new(root)",
+      }
+    );
+  };
 
   return (
     <Button variant="ghost" size="icon" onClick={toggleTheme} className="bg-background/20 backdrop-blur-lg border border-border hover:bg-background/40 rounded-full">
@@ -58,5 +64,5 @@ export function ThemeToggle() {
       <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
       <span className="sr-only">Toggle theme</span>
     </Button>
-  )
+  );
 }

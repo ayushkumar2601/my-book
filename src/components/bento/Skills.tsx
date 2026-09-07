@@ -4,74 +4,67 @@ import {
   SiNextdotjs,
   SiTypescript,
   SiPostgresql,
-  SiPrisma,
   SiReact,
   SiJavascript,
-  SiExpress,
   SiMongodb,
-  SiDrizzle,
+  SiPython,
+  SiFastapi,
+  SiDocker,
+  SiKubernetes,
+  SiRedis,
+  SiOpenai,
+  SiOllama,
+  SiNodedotjs,
+  SiGithubactions,
   SiTailwindcss,
-  SiFramer,
-  SiRust,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa6";
+import { TbBrain, TbRobot, TbApi, TbCpu, TbDatabase } from "react-icons/tb";
 
-import { cn } from "@/src/lib/utils";
 import { TechBadge } from "@/src/components/ui/tech-badge";
 
 const skills = [
-  { icon: SiNextdotjs, name: "Next.js", color: "text-foreground" },
+  { icon: SiPython, name: "Python", color: "#3776AB" },
   { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiNextdotjs, name: "Next.js", color: "text-foreground" },
+  { icon: SiFastapi, name: "FastAPI", color: "#009688" },
   { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
-  { icon: SiRust, name: "Rust", color: "red" }, { icon: SiReact, name: "React", color: "#61DAFB" },
+  { icon: SiOpenai, name: "OpenAI", color: "#10A37F" },
+  { icon: SiOllama, name: "Ollama", color: "text-foreground" },
+  { icon: TbBrain, name: "RAG Systems", color: "#8B5CF6" },
+  { icon: TbRobot, name: "AI Agents", color: "#EC4899" },
+  { icon: TbCpu, name: "MCP Protocol", color: "#3B82F6" },
+  { icon: SiDocker, name: "Docker", color: "#2496ED" },
+  { icon: SiKubernetes, name: "Kubernetes", color: "#326CE5" },
+  { icon: FaJava, name: "Java", color: "#ED8B00" },
+  { icon: SiReact, name: "React", color: "#61DAFB" },
   { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
-  { icon: SiExpress, name: "Express", color: "text-foreground" },
+  { icon: SiNodedotjs, name: "Node.js", color: "#339933" },
+  { icon: SiRedis, name: "Redis", color: "#DC382D" },
+  { icon: SiPostgresql, name: "pgvector", color: "#336791" },
   { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
-  { icon: SiDrizzle, name: "Drizzle", color: "text-foreground" },
-  { icon: SiTailwindcss, name: "Tailwind", color: "#06B6D4" },
-  { icon: SiFramer, name: "Framer Motion", color: "text-foreground" },
-  { icon: SiPrisma, name: "Prisma", color: "text-foreground" },
-
+  { icon: TbDatabase, name: "Qdrant", color: "#DC2626" },
+  { icon: SiGithubactions, name: "CI/CD", color: "#2088FF" },
+  { icon: TbApi, name: "REST APIs", color: "#10B981" },
+  { icon: SiTailwindcss, name: "Tailwind CSS", color: "#06B6D4" },
 ];
 
 export const SkillsCarousel = () => {
-  const row1 = skills.slice(0, 4);
-  const row2 = skills.slice(4, 8);
-  const row3 = skills.slice(8, 12);
-
   return (
-    <div className="w-full h-full p-2 md:p-4 flex flex-col group">
-      <div className="text-sm md:text-lg font-normal flex justify-start items-start px-2 md:px-4 -mt-1 md:-mt-2">Tech Stack</div>
-      <div className="flex flex-col gap-1.5 md:gap-3 px-2 md:px-4 justify-center items-center flex-1 content-center">
-        <div className="flex flex-wrap md:flex-nowrap gap-1 md:gap-2 justify-start items-center w-full">
-          {row1.map((skill, idx) => (
-            <TechBadge
-              key={`skill-r1-${idx}`}
-              name={skill.name}
-              icon={skill.icon}
-              color={skill.color}
-            />
-          ))}
-        </div>
-        <div className="flex flex-wrap md:flex-nowrap gap-1 md:gap-2 justify-start items-center w-full">
-          {row2.map((skill, idx) => (
-            <TechBadge
-              key={`skill-r2-${idx}`}
-              name={skill.name}
-              icon={skill.icon}
-              color={skill.color}
-            />
-          ))}
-        </div>
-        <div className="flex flex-wrap md:flex-nowrap gap-1 md:gap-2 justify-start items-center w-full">
-          {row3.map((skill, idx) => (
-            <TechBadge
-              key={`skill-r3-${idx}`}
-              name={skill.name}
-              icon={skill.icon}
-              color={skill.color}
-            />
-          ))}
-        </div>
+    <div className="w-full h-full p-3 md:p-4 flex flex-col group">
+      <div className="text-sm md:text-base font-medium flex justify-between items-center px-1 mb-2.5">
+        <span>Skills & Tech Stack</span>
+        <span className="text-xs text-muted-foreground font-normal hidden sm:inline">Backend • GenAI • Systems</span>
+      </div>
+      <div className="flex flex-wrap gap-1.5 md:gap-2 px-1 justify-start items-center flex-1 content-center">
+        {skills.map((skill, idx) => (
+          <TechBadge
+            key={`skill-${idx}`}
+            name={skill.name}
+            icon={skill.icon}
+            color={skill.color}
+          />
+        ))}
       </div>
     </div>
   );

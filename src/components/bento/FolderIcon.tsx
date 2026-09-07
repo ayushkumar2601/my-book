@@ -1,70 +1,82 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Image as ImageIcon } from "lucide-react";
 import Link from "next/link";
 
 export const FolderIcon = () => {
     return (
         <Link
             href="/gallery"
-            className="flex items-center gap-4 group cursor-pointer relative"
+            className="flex flex-col items-center justify-center group cursor-pointer relative w-full h-full p-4"
         >
-            {/* URL on hover - top left */}
-            <div className="absolute -top-8 -left-8 md:-top-12 md:-left-12 opacity-100 transition-opacity duration-300">
-                <span className="text-xs ml-10 md:ml-0 md:text-md text-foreground truncate">Gallery</span>
+            {/* Title on top left */}
+            <div className="absolute top-3 left-4 opacity-100 transition-opacity duration-300 flex items-center gap-1">
+                <span className="text-sm md:text-base font-medium text-foreground">Gallery</span>
             </div>
 
-            {/* Arrow on hover - top right */}
-            <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-foreground" />
+            {/* Arrow on top right */}
+            <div className="absolute top-3 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ArrowUpRight className="w-4 h-4 text-foreground" />
             </div>
 
-            <div className="relative top-4 md:top-6 w-16 h-12 md:w-20 md:h-16 perspective-1000 scale-75 md:scale-100">
+            {/* Scaled-up Folder Container */}
+            <div className="relative mt-5 w-24 h-18 md:w-30 md:h-24 perspective-1000 scale-110 md:scale-130 transition-transform duration-300">
                 {/* Folder Back */}
                 <div
-                    className="absolute bottom-0 w-full h-6/6 bg-foreground dark:bg-neutral-800 shadow-lg transform transition-transform duration-300 origin-bottom"
+                    className="absolute bottom-0 w-full h-full bg-neutral-800 dark:bg-neutral-800 shadow-xl rounded-t-md transform transition-transform duration-300 origin-bottom"
                     style={{
-                        clipPath: "path('M 0 6 Q 0 0 6 0 L 25 0 Q 35 0 40 10 L 74 10 Q 80 10 80 16 L 80 47 Q 80 53 74 53 L 6 53 Q 0 53 0 47 Z')",
+                        clipPath: "path('M 0 6 Q 0 0 6 0 L 28 0 Q 38 0 44 10 L 85 10 Q 92 10 92 16 L 92 58 Q 92 64 85 64 L 6 64 Q 0 64 0 58 Z')",
                     }}
                 ></div>
-                {/* Documents */}
-                <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-16 h-20 transition-all duration-300 ease-out translate-y-4 opacity-0 group-hover:-translate-y-2 group-hover:opacity-100 will-change-transform">
-                    {/* Doc 3 (Back) */}
-                    <div className="absolute bottom-0 left-1 w-14 h-16 bg-neutral-400 dark:bg-neutral-600 rounded-sm shadow-sm transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-x-4 group-hover:-translate-y-2 group-hover:-rotate-12">
-                        <div className="space-y-1 p-1 mt-1 opacity-50">
 
+                {/* Documents popping out of the folder */}
+                <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-24 transition-all duration-300 ease-out translate-y-1 opacity-90 group-hover:-translate-y-5 group-hover:opacity-100 will-change-transform z-0">
+                    {/* Doc 3 (Left / Back) */}
+                    <div className="absolute bottom-0 left-0 w-16 h-20 bg-neutral-600 dark:bg-neutral-600 rounded-md shadow-md border border-white/10 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-x-6 group-hover:-translate-y-4 group-hover:-rotate-16 flex flex-col p-1.5 justify-between">
+                        <div className="w-full h-10 bg-indigo-500/30 rounded flex items-center justify-center">
+                            <ImageIcon className="w-4 h-4 text-indigo-300 opacity-80" />
+                        </div>
+                        <div className="space-y-1">
+                            <div className="w-3/4 h-1 bg-white/40 rounded"></div>
+                            <div className="w-1/2 h-1 bg-white/20 rounded"></div>
                         </div>
                     </div>
 
-                    {/* Doc 2 (Middle) */}
-                    <div className="absolute bottom-0 left-1 w-14 h-16 bg-neutral-300 dark:bg-neutral-500 rounded-sm shadow-sm transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-y-3">
-                        <div className="space-y-1 p-1 mt-1 opacity-60">
-
+                    {/* Doc 2 (Center / Middle) */}
+                    <div className="absolute bottom-0 left-2 w-16 h-20 bg-neutral-500 dark:bg-neutral-500 rounded-md shadow-md border border-white/10 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:-translate-y-7 flex flex-col p-1.5 justify-between">
+                        <div className="w-full h-10 bg-purple-500/30 rounded flex items-center justify-center">
+                            <ImageIcon className="w-4 h-4 text-purple-300 opacity-80" />
+                        </div>
+                        <div className="space-y-1">
+                            <div className="w-4/5 h-1 bg-white/40 rounded"></div>
+                            <div className="w-3/5 h-1 bg-white/20 rounded"></div>
                         </div>
                     </div>
 
-                    {/* Doc 1 (Front) */}
-                    <div className="absolute bottom-0 left-1 w-14 h-16 bg-neutral-200 dark:bg-neutral-400 rounded-sm shadow-md transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:translate-x-4 group-hover:-translate-y-2 group-hover:rotate-12">
-                        <div className="space-y-1 p-1 mt-1">
-
+                    {/* Doc 1 (Right / Front) */}
+                    <div className="absolute bottom-0 left-4 w-16 h-20 bg-neutral-400 dark:bg-neutral-400 rounded-md shadow-lg border border-white/10 transform origin-bottom transition-all duration-300 ease-out will-change-transform group-hover:translate-x-6 group-hover:-translate-y-4 group-hover:rotate-16 flex flex-col p-1.5 justify-between">
+                        <div className="w-full h-10 bg-pink-500/30 rounded flex items-center justify-center">
+                            <ImageIcon className="w-4 h-4 text-pink-300 opacity-80" />
+                        </div>
+                        <div className="space-y-1">
+                            <div className="w-2/3 h-1 bg-white/40 rounded"></div>
+                            <div className="w-1/2 h-1 bg-white/20 rounded"></div>
                         </div>
                     </div>
                 </div>
 
-                {/* Folder Front (Glass) */}
+                {/* Folder Front (Glass effect) */}
                 <div
-                    className="absolute bottom-0 w-full h-5/6 z-10"
+                    className="absolute bottom-0 w-full h-5/6 z-10 pointer-events-none"
                     style={{
-                        filter: "drop-shadow(0 5px 5px rgba(0,0,0,0.2)) drop-shadow(0 1px 0 rgba(255,255,255,0.1))"
+                        filter: "drop-shadow(0 6px 8px rgba(0,0,0,0.3)) drop-shadow(0 1px 0 rgba(255,255,255,0.15))"
                     }}
                 >
                     <div
-                        className="w-full h-full bg-neutral-200 dark:bg-neutral-900 bg-gradient-to-b from-black/10 dark:from-white/20 to-transparent backdrop-blur-lg flex items-center justify-center overflow-hidden rounded-xs md:rounded-lg"
+                        className="w-full h-full bg-neutral-300/90 dark:bg-neutral-900/90 bg-gradient-to-b from-black/10 dark:from-white/20 to-transparent backdrop-blur-md flex items-center justify-center overflow-hidden rounded-md md:rounded-lg border-t border-white/20"
                     >
                     </div>
                 </div>
             </div>
-
-
         </Link>
     );
 };

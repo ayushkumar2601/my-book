@@ -37,9 +37,9 @@ export function Header() {
     <div className="flex justify-center w-full">
       <motion.nav
         animate={{
-          width: isDesktop ? (scrolled ? "45%" : "55%") : "95%",
-          y: scrolled ? 10 : 0,
-          borderRadius: scrolled ? "2.5rem" : "0rem",
+          width: isDesktop ? (scrolled ? "45%" : "55%") : "92%",
+          y: scrolled ? 12 : 8,
+          borderRadius: scrolled ? "2.5rem" : "1.75rem",
         }}
         transition={{
           duration: 0.3,
@@ -47,9 +47,8 @@ export function Header() {
         }}
         className={cn(
           "fixed inset-x-0 top-0 z-50 flex mx-auto items-center justify-between",
-          "px-4 py-3 bg-background/80 backdrop-blur-lg font-display border-b",
-          "text-foreground transition-all duration-300",
-          scrolled ? "border-border/40 shadow-md" : "border-transparent sm:border-transparent"
+          "px-5 py-2.5 bg-background/80 backdrop-blur-xl font-display border rounded-2xl sm:rounded-full",
+          "text-foreground transition-all duration-300 shadow-lg border-border/50"
         )}
         style={{
           maxWidth: "46rem"

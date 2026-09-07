@@ -110,12 +110,12 @@ export const Hero = () => {
                   </Tooltip>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <a href="/resume.pdf" download={PERSONAL_INFO.resumeFile} target="_blank" rel="noopener noreferrer" className="px-2 py-1 flex items-center justify-center border border-2 gap-2 rounded-full hover:bg-foreground/5 hover:text-muted-foreground text-foreground transition-all duration-200">
-                        <FaPaperclip className="w-4 h-4" /> <div>Resume</div>
+                      <a href="/ayushkumar_resume.pdf" download={PERSONAL_INFO.resumeFile} target="_blank" rel="noopener noreferrer" className="px-3 py-1 flex items-center justify-center border border-2 gap-2 rounded-full hover:bg-foreground/5 hover:text-muted-foreground text-foreground transition-all duration-200 text-sm font-medium">
+                        <FaPaperclip className="w-3.5 h-3.5" /> <div>Resume</div>
                       </a>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <div>Click To Download</div>
+                      <div>Click To View / Download</div>
                     </TooltipContent>
                   </Tooltip>
                 </div>

@@ -61,13 +61,13 @@ const AchievementCard: React.FC<AchievementCardProps> = ({ achievement }) => {
               rel="noopener noreferrer"
               className="flex-shrink-0 transition-transform hover:scale-105"
             >
-              <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-sm overflow-hidden border border-edge bg-background shadow-sm">
+              <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden border border-edge bg-card/80 dark:bg-black/50 shadow-sm flex items-center justify-center p-2">
                 <Image
                   src={achievement.organization_logo}
                   alt={`${achievement.organization_name} logo`}
                   width={80}
                   height={80}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain rounded-md"
                 />
               </div>
             </Link>
@@ -83,11 +83,8 @@ const AchievementCard: React.FC<AchievementCardProps> = ({ achievement }) => {
                     {achievement.organization_name}
                   </p>
                 </div>
-                <span className="flex items-center text-center px-4 text-sm text-foreground bg-muted py-1.5 rounded-full border border-edge max-w-32">
-
-                  <span className="whitespace-nowrap font-medium">
-                    {achievement.year}
-                  </span>
+                <span className="inline-flex items-center justify-center shrink-0 px-3.5 py-1 text-xs sm:text-sm text-foreground bg-muted rounded-full border border-edge w-fit font-medium whitespace-nowrap">
+                  {achievement.year}
                 </span>
               </div>
 
