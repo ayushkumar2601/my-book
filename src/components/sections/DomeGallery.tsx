@@ -94,36 +94,50 @@ function buildItems(pool: ImageItem[], seg: number): ItemDef[] {
     return { src: image.src || '', alt: image.alt || '' };
   });
 
-  const count = normalizedImages.length;
-  if (count === 0) return [];
+  if (normalizedImages.length === 0) return [];
 
-  // Generate spherical grid coordinates for exactly 'count' items with NO repetitions
-  const evenYs = [-3, -1, 1, 3];
-  const oddYs = [-2, 0, 2];
+  // Generate full 360-degree spherical grid coordinates (~77 items)
+  const evenYs = [-4, -2, 0, 2, 4];
+  const oddYs = [-3, -1, 1, 3];
 
-  // Distribute columns evenly around the dome sphere
-  const colsNeeded = Math.ceil(count / 4);
-  const xCols = Array.from({ length: colsNeeded }, (_, i) => {
-    const minX = -28;
-    const maxX = 28;
-    return colsNeeded === 1 ? 0 : minX + (i * (maxX - minX)) / (colsNeeded - 1);
-  });
+  const xCols: number[] = [];
+  for (let x = -32; x <= 32; x += 4) {
+    xCols.push(x);
+  }
 
   const coords: { x: number; y: number; sizeX: number; sizeY: number }[] = [];
-  let added = 0;
-  for (let c = 0; c < xCols.length && added < count; c++) {
+  for (let c = 0; c < xCols.length; c++) {
     const x = xCols[c];
     const ys = c % 2 === 0 ? evenYs : oddYs;
-    for (let r = 0; r < ys.length && added < count; r++) {
+    for (let r = 0; r < ys.length; r++) {
       coords.push({ x, y: ys[r], sizeX: 2, sizeY: 2 });
-      added++;
     }
+  }
+
+  // Create a randomized pool by repeating and shuffling deterministically
+  const totalSlots = coords.length;
+  const imagePool: { src: string; alt: string }[] = [];
+  while (imagePool.length < totalSlots) {
+    imagePool.push(...normalizedImages);
+  }
+
+  // Deterministic pseudo-random shuffle (LCG algorithm for consistent SSR/hydration)
+  let seed = 12345;
+  const pseudoRandom = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+
+  const shuffledPool = [...imagePool.slice(0, totalSlots)];
+  for (let i = shuffledPool.length - 1; i > 0; i--) {
+    const j = Math.floor(pseudoRandom() * (i + 1));
+    [shuffledPool[i], shuffledPool[j]] = [shuffledPool[j], shuffledPool[i]];
   }
 
   return coords.map((c, i) => ({
     ...c,
-    src: normalizedImages[i].src,
-    alt: normalizedImages[i].alt
+    src: shuffledPool[i].src,
+    alt: shuffledPool[i].alt
   }));
 }
 
