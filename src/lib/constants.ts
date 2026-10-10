@@ -118,7 +118,7 @@ export const experienceData: I_Experience[] = [
     company_link: "https://zyoris.com/",
     company_logo: "/assets/zyoris.png",
     company_name: "Zyoris Technology",
-    duration: "Jul 2026 – Present",
+    duration: "Jul 2026 – Oct 2026",
     job_title: "AI Lead & Backend Engineer",
     description: "Leading the design and development of AI-powered CRM workflows using Groq, OpenAI, Ollama, FastAPI, PostgreSQL, pgvector, BullMQ, and Next.js. Architected RAG pipelines, vector memory systems, AI audit logging, PII redaction, autonomous agent workflows, and role-based AI copilots for enterprise AI operations.",
   },
