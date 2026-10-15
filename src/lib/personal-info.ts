@@ -1,8 +1,8 @@
 export const PERSONAL_INFO = {
   name: "Ayush Kumar",
   title1: "Backend & GenAI Engineer",
-  title2: "13× Hackathon Winner",
-  bio: "Backend & GenAI Engineer focused on building scalable software systems, intelligent business platforms, and practical AI products. 13× Hackathon Winner recognized for delivering high-impact solutions through strong system design, full-stack engineering, and applied GenAI. Passionate about turning ambitious ideas into reliable, production-ready systems that solve real-world problems at scale.",
+  title2: "14× Hackathon Winner",
+  bio: "Backend & GenAI Engineer focused on building scalable software systems, intelligent business platforms, and practical AI products. 14× Hackathon Winner recognized for delivering high-impact solutions through strong system design, full-stack engineering, and applied GenAI. Passionate about turning ambitious ideas into reliable, production-ready systems that solve real-world problems at scale.",
   github: "https://github.com/ayushkumar2601",
   twitter: "https://x.com/notmuchayush",
   linkedin: "https://www.linkedin.com/in/ayushkumar2601",

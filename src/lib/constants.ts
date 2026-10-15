@@ -109,7 +109,7 @@ export const TECH_ICONS: Record<string, { icon: IconType; color: string }> = {
 export const words = [
   "Backend & GenAI Engineer",
   "SDE Intern @ TechTrendGo",
-  "13× Hackathon Winner",
+  "14× Hackathon Winner",
   "Autonomous AI Systems",
 ];
 
