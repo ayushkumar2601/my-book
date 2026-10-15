@@ -158,7 +158,7 @@ export const achievementsData: I_Achievement[] = [
     description: "Double Winner (Overall 1st Prize + Civic AI 3rd Place) among 500+ builders for designing an AI cybersecurity automation architecture.",
   },
   {
-    title: "1st Place Winner — Safety Track",
+    title: "Winner",
     organization_name: "FrostHacks S02 (AOT & TCS)",
     organization_link: "https://www.linkedin.com/posts/ayushkumar2601_frosthackss02-hackathon-innovation-activity-7444746828182556672-y-TN?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFFlFdABtgDPe4hnL-KUuGI07w-4lbONSxw",
     organization_logo: "/assets/frosthacks.png",
@@ -166,7 +166,7 @@ export const achievementsData: I_Achievement[] = [
     description: "2,000+ builders 36-hour national hackathon. Won 1st Prize for building S.A.F.E (Smart Adaptive Fire Evacuation system).",
   },
   {
-    title: "2nd Place Winner — Cybersecurity Track",
+    title: "1st Runner-Up — Cybersecurity Track",
     organization_name: "TCS Tech Day 2026 (Tata Consultancy Services)",
     organization_link: "https://www.linkedin.com/posts/ayushkumar2601_tcstechday2026-tcs-cybersecurity-activity-7489581792530731008-W-dJ?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFFlFdABtgDPe4hnL-KUuGI07w-4lbONSxw",
     organization_logo: "/hacks/tcs.png",
@@ -196,6 +196,14 @@ export const achievementsData: I_Achievement[] = [
     organization_logo: "/assets/payload.png",
     year: "Jan 2026",
     description: "Solo project win for building Bondbuy — a shared asset ownership platform using Web3 coordination primitives.",
+  },
+  {
+    title: "Winner — Gemma Track",
+    organization_name: "Hacktoberfest Kolkata (MLH)",
+    organization_link: "https://www.linkedin.com/in/ayushkumar2601",
+    organization_logo: "/hacks/hacktoberfest.png",
+    year: "Oct 2026",
+    description: "Won the Gemma Track at Hacktoberfest Kolkata (Major League Hacking) for building VAYU — an Autonomous Cyber Reasoning System (CRS) for vulnerability detection, root-cause reasoning, and verified remediation.",
   },
   {
     title: "Winner — Ethereum Build Camp",
