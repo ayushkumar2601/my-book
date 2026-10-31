@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { ThemeToggle } from "@/src/components/ui/theme-toggle";
 import { cn } from "@/src/lib/utils";
+import { PERSONAL_INFO } from "@/src/lib/personal-info";
 
 export function Header() {
   const navItems = [
@@ -57,7 +58,7 @@ export function Header() {
         <Link href="/" className="hover:opacity-75 transition-opacity duration-300">
           <Image
             className="w-9 h-9 rounded-full shadow-sm object-cover lg:hidden"
-            src="/assets/me.jpg"
+            src={PERSONAL_INFO.image}
             width={100}
             height={100}
             alt="Avatar"

@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   email: "kumarayush.professional@gmail.com",
   cal: "https://cal.com/ayushkumar2601",
   resumeFile: "ayushkumar_resume.pdf",
-  image: "/assets/me.jpg",
+  image: "/new-pfp.jpg",
   banner: "/assets/banner.png",
   logo: "/assets/logo.svg",
   url: "https://ayushkumar.dev",
