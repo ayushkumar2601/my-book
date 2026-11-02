@@ -63,7 +63,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ education }) => {
               rel="noopener noreferrer"
               className="flex-shrink-0 transition-transform hover:scale-105"
             >
-              <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden border border-edge bg-card/80 dark:bg-black/50 shadow-sm flex items-center justify-center p-2">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden border border-edge bg-neutral-950 dark:bg-black/50 shadow-sm flex items-center justify-center p-2">
                 <Image
                   src={education.institute_logo}
                   alt={`${education.institute_name} logo`}
